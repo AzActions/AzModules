@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "validation-kv-ma"
+        },
+        "scopes": {
+            "value": [
+                "/subscriptions/<subscriptionid>"
+            ]
+        },
+        "windowSize": {
+            "value": "PT5M"
+        },
+        "actions": {
+            "value": [
+                {
+                    "actionGroupId": "/subscriptions/<subscriptionid>/resourceGroups/validation-rg/providers/microsoft.insights/actionGroups/validation-ag"
+                }
+            ]
+        },
+        "targetResourceType": {
+            "value": "Microsoft.KeyVault/vaults"
+        },
+        "targetResourceRegion": {
+            "value": "norwayeast"
+        },
+        "criterias": {
+            "value": [
+                {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "ServiceApiHit",
+                    "metricNamespace": "Microsoft.KeyVault/vaults",
+                    "name": "Metric1",
+                    "operator": "GreaterThan",
+                    "threshold": "100",
+                    "timeAggregation": "Count",
+                    "dimensions": [
+                        {
+                            "name": "ActivityType",
+                            "operator": "Include",
+                            "values": [
+                                "*"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "alertCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
+        }
+    }
+}

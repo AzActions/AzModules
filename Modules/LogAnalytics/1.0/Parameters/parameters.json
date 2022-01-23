@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logAnalyticsWorkspaceName": {
+            "value": "validation-law"
+        },
+        "solutions": {
+            "value": [
+                "Updates",
+                "AzureAutomation",
+                "ChangeTracking",
+                "ServiceMap",
+                "AlertManagement",
+                "AzureActivity"
+            ]
+        },
+        "automationAccountId": {
+            "value": "/subscriptions/<subscriptionid>/resourceGroups/validation-rg/providers/Microsoft.Automation/automationAccounts/validation-aa"
+        }
+    }
+}

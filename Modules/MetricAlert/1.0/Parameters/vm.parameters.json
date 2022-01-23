@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "validation-vm-ma"
+        },
+        "scopes": {
+            "value": [
+                "/subscriptions/<subscriptionid>"
+            ]
+        },
+        "windowSize": {
+            "value": "PT5M"
+        },
+        "actions": {
+            "value": [
+                {
+                    "actionGroupId": "/subscriptions/<subscriptionid>/resourceGroups/validation-rg/providers/microsoft.insights/actionGroups/validation-ag"
+                }
+            ]
+        },
+        "targetResourceType": {
+            "value": "microsoft.compute/virtualmachines"
+        },
+        "targetResourceRegion": {
+            "value": "norwayeast"
+        },
+        "criterias": {
+            "value": [
+                {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "Percentage CPU",
+                    "metricNamespace": "microsoft.compute/virtualmachines",
+                    "name": "HighCPU",
+                    "operator": "GreaterThan",
+                    "threshold": 90,
+                    "timeAggregation": "Average"
+                }
+            ]
+        },
+        "alertCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
+        }
+    }
+}
