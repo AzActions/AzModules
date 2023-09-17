@@ -143,7 +143,7 @@ jobs:
     steps:
 
       - name: Checkout parameter
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Connect to Azure
         uses: AzActions/AzConnect@v1
@@ -181,10 +181,10 @@ jobs:
     steps:
 
       - name: Checkout parameters
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout modules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           clean: false # So the parameter checkout is not cleaned out
           repository: Someone/MyOwnModules
@@ -229,7 +229,7 @@ jobs:
     steps:
 
       - name: Checkout parameter
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Connect to Azure
         uses: AzActions/AzConnect@v1
@@ -267,7 +267,7 @@ jobs:
     steps:
 
       - name: Checkout parameters
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Connect to Azure
         uses: AzActions/AzConnect@v1
